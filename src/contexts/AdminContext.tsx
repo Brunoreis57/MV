@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 
 interface AdminContextType {
   isAuthenticated: boolean;
-  login: (password: string) => boolean;
+  login: (username: string, password: string) => Promise<void>;
   logout: () => void;
   isEditMode: boolean;
   toggleEditMode: () => void;
@@ -33,14 +33,15 @@ export const AdminProvider: React.FC<AdminProviderProps> = ({ children }) => {
     }
   }, []);
 
-  const login = (password: string): boolean => {
-    // Simple password check - in production, use proper authentication
-    if (password === 'admin123') {
+  const login = async (username: string, password: string) => {
+    // Aqui você pode implementar a lógica real de autenticação
+    // Por enquanto, vamos usar uma senha fixa para demonstração
+    if (username === 'admin' && password === 'admin123') {
       setIsAuthenticated(true);
       localStorage.setItem('admin_authenticated', 'true');
-      return true;
+    } else {
+      throw new Error('Credenciais inválidas');
     }
-    return false;
   };
 
   const logout = () => {

@@ -84,11 +84,41 @@ interface AutomotiveContent {
   };
 }
 
+interface Service {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  category: 'estetica' | 'mecanica';
+}
+
+interface Content {
+  title: string;
+  subtitle: string;
+  about: string;
+  hours: string;
+  address: string;
+  phone: string;
+  whatsapp: string;
+  bannerImage: string;
+  services: Service[];
+  contacts: {
+    instagram?: string;
+    facebook?: string;
+    email?: string;
+  };
+}
+
 interface ContentContextType {
   barbershopContent: BarbershopContent;
   automotiveContent: AutomotiveContent;
+  content: Content;
   updateBarbershopContent: (content: Partial<BarbershopContent>) => void;
   updateAutomotiveContent: (content: Partial<AutomotiveContent>) => void;
+  updateContent: (newContent: Partial<Content>) => void;
+  addService: (service: Omit<Service, 'id'>) => void;
+  updateService: (id: string, service: Partial<Service>) => void;
+  deleteService: (id: string) => void;
 }
 
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
@@ -225,6 +255,45 @@ const defaultAutomotiveContent: AutomotiveContent = {
   }
 };
 
+const defaultContent: Content = {
+  title: 'MV Center',
+  subtitle: 'Estética Automotiva e Mecânica',
+  about: 'Somos especializados em estética automotiva e serviços mecânicos, oferecendo o melhor cuidado para seu veículo.',
+  hours: 'Segunda a Sexta: 9h às 18h | Sábado: 9h às 14h',
+  address: 'Rua Lauro Linhares 1060, Trindade',
+  phone: '(48) 99215-1013',
+  whatsapp: '(48) 99215-1013',
+  bannerImage: '/images/bannerestetica.jpeg',
+  services: [
+    {
+      id: '1',
+      name: 'Lavação Completa',
+      description: 'Lavação externa e interna completa do veículo',
+      price: 'R$ 80,00',
+      category: 'estetica'
+    },
+    {
+      id: '2',
+      name: 'Polimento',
+      description: 'Polimento completo da pintura',
+      price: 'R$ 250,00',
+      category: 'estetica'
+    },
+    {
+      id: '3',
+      name: 'Troca de Óleo',
+      description: 'Troca de óleo com filtro',
+      price: 'A partir de R$ 180,00',
+      category: 'mecanica'
+    }
+  ],
+  contacts: {
+    instagram: '@mvcenter',
+    facebook: 'MVCenter',
+    email: 'mvcontato@gmail.com'
+  }
+};
+
 interface ContentProviderProps {
   children: ReactNode;
 }
@@ -232,6 +301,7 @@ interface ContentProviderProps {
 export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
   const [barbershopContent, setBarbershopContent] = useState<BarbershopContent>(defaultBarbershopContent);
   const [automotiveContent, setAutomotiveContent] = useState<AutomotiveContent>(defaultAutomotiveContent);
+  const [content, setContent] = useState<Content>(defaultContent);
 
   useEffect(() => {
     const savedBarbershop = localStorage.getItem('barbershop_content');
@@ -257,12 +327,51 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
     localStorage.setItem('automotive_content', JSON.stringify(newContent));
   };
 
+  const updateContent = (newContent: Partial<Content>) => {
+    setContent(current => ({
+      ...current,
+      ...newContent
+    }));
+  };
+
+  const addService = (service: Omit<Service, 'id'>) => {
+    const newService = {
+      ...service,
+      id: Date.now().toString()
+    };
+    setContent(current => ({
+      ...current,
+      services: [...current.services, newService]
+    }));
+  };
+
+  const updateService = (id: string, serviceUpdate: Partial<Service>) => {
+    setContent(current => ({
+      ...current,
+      services: current.services.map(service =>
+        service.id === id ? { ...service, ...serviceUpdate } : service
+      )
+    }));
+  };
+
+  const deleteService = (id: string) => {
+    setContent(current => ({
+      ...current,
+      services: current.services.filter(service => service.id !== id)
+    }));
+  };
+
   return (
     <ContentContext.Provider value={{
       barbershopContent,
       automotiveContent,
+      content,
       updateBarbershopContent,
-      updateAutomotiveContent
+      updateAutomotiveContent,
+      updateContent,
+      addService,
+      updateService,
+      deleteService
     }}>
       {children}
     </ContentContext.Provider>
