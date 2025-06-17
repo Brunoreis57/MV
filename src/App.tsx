@@ -9,6 +9,7 @@ import { AutomotivePage } from './pages/AutomotivePage';
 import { AdminPanel } from './components/AdminPanel';
 import { LoginForm } from './components/LoginForm';
 import { Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 type PageType = 'home' | 'barbershop' | 'automotive';
 
@@ -66,7 +67,37 @@ function App() {
     <AdminProvider>
       <ContentProvider>
         <FinancialProvider>
-          <AppContent />
+          <div className="min-h-screen bg-gray-100">
+            <div className="container mx-auto px-4 py-8">
+              <h1 className="text-4xl font-bold text-center mb-8">MV Center</h1>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Card da Barbearia */}
+                <Link to="/barbearia" className="block">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="/images/bannerbarbearia.png" alt="MV Barbearia" className="w-full h-48 object-cover"/>
+                    <div className="p-6">
+                      <h2 className="text-2xl font-bold mb-2">MV Barbearia</h2>
+                      <p className="text-gray-600">Seu visual, nossa missão</p>
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Card da Estética Automotiva */}
+                <Link to="/estetica" className="block">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="/images/bannerestetica.jpeg" alt="MV Estética Automotiva" className="w-full h-48 object-cover"/>
+                    <div className="p-6">
+                      <h2 className="text-2xl font-bold mb-2">MV Estética Automotiva</h2>
+                      <p className="text-gray-600">Excelência em cuidados automotivos</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            <footer className="text-center py-4 mt-8">
+              <p>© MV Center</p>
+            </footer>
+          </div>
         </FinancialProvider>
       </ContentProvider>
     </AdminProvider>

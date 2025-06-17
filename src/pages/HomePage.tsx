@@ -12,7 +12,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTemplate }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
+          <div className="flex justify-center gap-6 mb-8">
+            <a
+              href="/barbearia"
+              className="text-white hover:text-blue-300 transition-colors text-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MV Barbearia
+            </a>
+            <span className="text-gray-400">|</span>
+            <a
+              href="/estetica"
+              className="text-white hover:text-blue-300 transition-colors text-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MV Estética Automotiva
+            </a>
+          </div>
           <h1 className="text-5xl font-bold text-white mb-6">
             Landing Pages Profissionais
           </h1>

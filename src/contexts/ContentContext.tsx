@@ -159,7 +159,7 @@ const defaultBarbershopContent: BarbershopContent = {
     accent: "#10B981"
   },
   footer: {
-    copyright: "© 2024 Barbearia Clássica. Todos os direitos reservados."
+    copyright: "© MV Center"
   }
 };
 
@@ -184,25 +184,25 @@ const defaultAutomotiveContent: AutomotiveContent = {
     items: [
       {
         name: "Lavagem Completa",
-        description: "Lavagem externa e interna detalhada",
+        description: "Lavagem externa e interna detalhada, com produtos premium e cuidado especial",
         price: "R$ 35,00",
         icon: "Car"
       },
       {
-        name: "Enceramento",
-        description: "Proteção e brilho duradouro",
+        name: "Polimento e Cristalização",
+        description: "Proteção e brilho duradouro para a pintura do seu veículo",
         price: "R$ 45,00",
         icon: "Sparkles"
       },
       {
         name: "Troca de Óleo",
-        description: "Óleo de motor e filtros",
+        description: "Troca de óleo do motor e filtros, usando produtos de primeira linha",
         price: "R$ 80,00",
         icon: "Wrench"
       },
       {
-        name: "Pacote Premium",
-        description: "Todos os serviços inclusos",
+        name: "Revisão Completa",
+        description: "Checagem geral do veículo e manutenção preventiva",
         price: "R$ 140,00",
         icon: "Award"
       }
@@ -221,7 +221,7 @@ const defaultAutomotiveContent: AutomotiveContent = {
     accent: "#10B981"
   },
   footer: {
-    copyright: "© 2024 AutoCare Premium. Todos os direitos reservados."
+    copyright: "© MV Center"
   }
 };
 

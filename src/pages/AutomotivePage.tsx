@@ -151,8 +151,11 @@ export const AutomotivePage: React.FC<AutomotivePageProps> = ({ onBack }) => {
             className={`text-4xl font-bold text-center mb-16 text-[${automotiveContent.colors.primary}]`}
             placeholder="Título dos Serviços"
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {automotiveContent.services.items.map((service, index) => (
+          
+          {/* Estética */}
+          <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700">Estética Automotiva</h3>
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {automotiveContent.services.items.slice(0, 2).map((service, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-center mb-4" style={{ color: automotiveContent.colors.secondary }}>
                   {getIcon(service.icon)}
@@ -174,6 +177,39 @@ export const AutomotivePage: React.FC<AutomotivePageProps> = ({ onBack }) => {
                   <EditableText
                     value={service.price}
                     onChange={(value) => updateServices(`items.${index}.price`, value)}
+                    className="text-inherit"
+                    placeholder="Preço"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mecânica */}
+          <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700">Serviços Mecânicos</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {automotiveContent.services.items.slice(2, 4).map((service, index) => (
+              <div key={index + 2} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-center mb-4" style={{ color: automotiveContent.colors.secondary }}>
+                  {getIcon(service.icon)}
+                </div>
+                <EditableText
+                  value={service.name}
+                  onChange={(value) => updateServices(`items.${index + 2}.name`, value)}
+                  className="text-xl font-bold mb-3 text-center"
+                  placeholder="Nome do Serviço"
+                />
+                <EditableText
+                  value={service.description}
+                  onChange={(value) => updateServices(`items.${index + 2}.description`, value)}
+                  className="text-gray-600 text-center mb-4"
+                  placeholder="Descrição do Serviço"
+                  multiline
+                />
+                <div className="text-2xl font-bold text-center" style={{ color: automotiveContent.colors.accent }}>
+                  <EditableText
+                    value={service.price}
+                    onChange={(value) => updateServices(`items.${index + 2}.price`, value)}
                     className="text-inherit"
                     placeholder="Preço"
                   />

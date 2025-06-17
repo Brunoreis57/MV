@@ -7,4 +7,19 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        barbearia: './barbearia/index.html',
+        estetica: './estetica/index.html',
+      },
+    },
+  },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  },
+  base: '/'
 });
