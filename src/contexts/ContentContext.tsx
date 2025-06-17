@@ -103,18 +103,18 @@ export const useContent = () => {
 
 const defaultBarbershopContent: BarbershopContent = {
   logo: {
-    image: "https://placehold.co/200x80?text=Logo+Barbearia",
-    alt: "Logo da Barbearia"
+    image: "/images/logo.png.png",
+    alt: "Logo MV Barbearia"
   },
   hero: {
-    title: "Barbearia Clássica",
-    subtitle: "Tradição e estilo em cada corte. Venha viver a experiência de um verdadeiro gentleman.",
+    title: "MV Barbearia",
+    subtitle: "Seu visual, nossa missão",
     ctaText: "Agendar Horário",
-    backgroundImage: "https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    backgroundImage: "/images/bannerbarbearia.png"
   },
   about: {
     title: "Nossa História",
-    description: "Há mais de 20 anos oferecendo os melhores serviços de barbearia, combinando técnicas tradicionais com o que há de mais moderno no mercado. Nossa equipe de profissionais qualificados está pronta para cuidar do seu visual com excelência.",
+    description: "Somos uma barbearia nova, criada para quem valoriza estilo, cuidado e atitude. Unimos tradição e modernidade em um ambiente pensado pra você se sentir em casa. Aqui, cada corte e cada barba são feitos com excelência, atenção e paixão pelo que fazemos.\n\nSeu estilo, nossa missão.",
     image: "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   services: {
@@ -148,15 +148,15 @@ const defaultBarbershopContent: BarbershopContent = {
   },
   contact: {
     title: "Contato",
-    address: "Rua das Flores, 123 - Centro",
-    phone: "(11) 99999-9999",
-    email: "contato@barbearia.com",
-    hours: "Seg - Sex: 8h às 18h | Sáb: 8h às 16h"
+    address: "Rua Lauro Linhares 1060, Trindade",
+    phone: "(48) 99140-1012",
+    email: "mvcontato@gmail.com",
+    hours: "Segunda - Sexta 9h às 19h | Sáb: 8h às 14h"
   },
   colors: {
-    primary: "#8B4513",
-    secondary: "#D2691E",
-    accent: "#FFD700"
+    primary: "#1E40AF",
+    secondary: "#3B82F6",
+    accent: "#10B981"
   },
   footer: {
     copyright: "© 2024 Barbearia Clássica. Todos os direitos reservados."
@@ -165,14 +165,14 @@ const defaultBarbershopContent: BarbershopContent = {
 
 const defaultAutomotiveContent: AutomotiveContent = {
   logo: {
-    image: "https://placehold.co/200x80?text=Logo+AutoCare",
-    alt: "Logo da AutoCare"
+    image: "/images/logo.png.png",
+    alt: "Logo MV Estética Automotiva"
   },
   hero: {
-    title: "AutoCare Premium",
-    subtitle: "Estética automotiva e troca de óleo com qualidade e confiança. Seu carro merece o melhor cuidado.",
-    ctaText: "Solicitar Orçamento",
-    backgroundImage: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    title: "Serviços Automotivos de Excelência",
+    subtitle: "Cuidamos do seu veículo com a mesma paixão que você tem por ele",
+    ctaText: "Agendar Serviço",
+    backgroundImage: "/images/bannerestetica.jpeg"
   },
   about: {
     title: "Sobre Nós",
@@ -210,10 +210,10 @@ const defaultAutomotiveContent: AutomotiveContent = {
   },
   contact: {
     title: "Contato",
-    address: "Av. Principal, 456 - Bairro Novo",
-    phone: "(11) 88888-8888",
-    email: "contato@autocare.com",
-    hours: "Seg - Sex: 7h às 19h | Sáb: 7h às 17h"
+    address: "Rua Lauro Linhares 1060, Trindade",
+    phone: "(48) 99215-1013",
+    email: "mvcontato@gmail.com",
+    hours: "Segunda a Sexta: 9h às 18h | Sábado: 9h às 14h"
   },
   colors: {
     primary: "#1E40AF",

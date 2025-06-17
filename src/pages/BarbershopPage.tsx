@@ -73,6 +73,9 @@ export const BarbershopPage: React.FC<BarbershopPageProps> = ({ onBack }) => {
       {/* Hero Section */}
       <section 
         className="relative h-screen flex items-center justify-center bg-cover bg-center"
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${barbershopContent.hero.backgroundImage})` 
+        }}
       >
         <EditableImage
           src={barbershopContent.hero.backgroundImage}
@@ -80,8 +83,14 @@ export const BarbershopPage: React.FC<BarbershopPageProps> = ({ onBack }) => {
           onChange={(value) => updateHero('backgroundImage', value)}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center text-white px-4">
+          <EditableImage
+            src={barbershopContent.logo.image}
+            alt={barbershopContent.logo.alt}
+            onChange={(value) => updateBarbershopContent({ logo: { ...barbershopContent.logo, image: value } })}
+            className="mx-auto mb-8 w-48 h-auto"
+          />
           <EditableText
             value={barbershopContent.hero.title}
             onChange={(value) => updateHero('title', value)}
@@ -99,12 +108,19 @@ export const BarbershopPage: React.FC<BarbershopPageProps> = ({ onBack }) => {
             className="inline-block px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
             style={{ backgroundColor: barbershopContent.colors.primary }}
           >
-            <EditableText
-              value={barbershopContent.hero.ctaText}
-              onChange={(value) => updateHero('ctaText', value)}
+            <a 
+              href="https://wa.me/5548991401012?text=Olá,%20gostaria%20de%20agendar%20um%20horário"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white"
-              placeholder="Botão CTA"
-            />
+            >
+              <EditableText
+                value={barbershopContent.hero.ctaText}
+                onChange={(value) => updateHero('ctaText', value)}
+                className="text-white"
+                placeholder="Botão CTA"
+              />
+            </a>
           </button>
         </div>
       </section>

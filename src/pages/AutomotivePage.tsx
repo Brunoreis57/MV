@@ -69,8 +69,14 @@ export const AutomotivePage: React.FC<AutomotivePageProps> = ({ onBack }) => {
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${automotiveContent.hero.backgroundImage})` 
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center text-white px-4">
+          <EditableImage
+            src={automotiveContent.logo.image}
+            alt={automotiveContent.logo.alt}
+            onChange={(value) => updateAutomotiveContent({ logo: { ...automotiveContent.logo, image: value } })}
+            className="mx-auto mb-8 w-48 h-auto"
+          />
           <EditableText
             value={automotiveContent.hero.title}
             onChange={(value) => updateHero('title', value)}
@@ -88,12 +94,19 @@ export const AutomotivePage: React.FC<AutomotivePageProps> = ({ onBack }) => {
             className="inline-block px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
             style={{ backgroundColor: automotiveContent.colors.primary }}
           >
-            <EditableText
-              value={automotiveContent.hero.ctaText}
-              onChange={(value) => updateHero('ctaText', value)}
+            <a 
+              href="https://wa.me/5548992151013?text=Olá,%20gostaria%20de%20agendar%20um%20serviço"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white"
-              placeholder="Botão CTA"
-            />
+            >
+              <EditableText
+                value={automotiveContent.hero.ctaText}
+                onChange={(value) => updateHero('ctaText', value)}
+                className="text-white"
+                placeholder="Botão CTA"
+              />
+            </a>
           </button>
         </div>
       </section>
