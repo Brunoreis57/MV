@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,12 +9,9 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   build: {
+    outDir: 'dist',
     rollupOptions: {
-      input: {
-        main: './index.html',
-        barbearia: './barbearia/index.html',
-        estetica: './estetica/index.html',
-      },
+      input: resolve(__dirname, 'index.html')
     },
   },
   server: {
